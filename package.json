@@ -1,0 +1,27 @@
+{
+  "name": "landing-pages-showcase",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "base-club",
+    "creatix",
+    "finguard",
+    "lumora",
+    "nicepay",
+    "petal-power"
+  ],
+  "scripts": {
+    "dev:base-club": "npm run dev -w base-club",
+    "dev:creatix": "npm run dev -w creatix",
+    "dev:finguard": "npm run dev -w finguard",
+    "dev:lumora": "npm run dev -w lumora",
+    "dev:nicepay": "npm run dev -w nicepay",
+    "dev:petal-power": "npm run dev -w petal-power",
+    "build": "npm run build --workspaces && node scripts/collect-site.mjs",
+    "preview": "npx vite preview --outDir site --port 4000",
+    "previews": "node scripts/previews.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.49.0"
+  }
+}

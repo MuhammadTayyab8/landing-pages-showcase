@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Pages Showcase</title>
+  <meta name="description" content="Six responsive, animated landing pages built with React, Vite, Tailwind CSS and Motion." />
+  <meta name="theme-color" content="#0b0b0c" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0b0c'/%3E%3Crect x='14' y='14' width='16' height='16' rx='4' fill='%23f5f5f4'/%3E%3Crect x='34' y='14' width='16' height='16' rx='4' fill='%23b8ff2c'/%3E%3Crect x='14' y='34' width='16' height='16' rx='4' fill='%23ff4500'/%3E%3Crect x='34' y='34' width='16' height='16' rx='4' fill='%236c5ce7'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0b0b0c; --card: #141416; --line: rgba(255,255,255,0.08); --muted: rgba(255,255,255,0.55); }
+    body { background: var(--bg); color: #f5f5f4; font-family: 'Satoshi', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 96px 0 56px; }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+    .eyebrow i { width: 7px; height: 7px; border-radius: 50%; background: #b8ff2c; box-shadow: 0 0 12px #b8ff2c; }
+    h1 { font-family: 'Clash Display', sans-serif; font-weight: 600; font-size: clamp(44px, 7vw, 96px); line-height: 0.95; letter-spacing: -0.03em; margin-top: 24px; max-width: 12ch; }
+    header p { margin-top: 24px; max-width: 56ch; color: var(--muted); font-size: 18px; line-height: 1.6; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .stack span { font-size: 13px; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; color: rgba(255,255,255,0.8); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; padding-bottom: 96px; }
+    .card { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+      transition: transform .5s cubic-bezier(.22,1,.36,1), border-color .3s; opacity: 0; transform: translateY(24px); animation: rise .9s cubic-bezier(.22,1,.36,1) forwards; }
+    .card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.22); }
+    .card:focus-visible { outline: 2px solid #b8ff2c; outline-offset: 4px; }
+    .thumb { aspect-ratio: 16 / 10; overflow: hidden; background: #1c1c1f; }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 1.2s cubic-bezier(.22,1,.36,1); }
+    .card:hover .thumb img { transform: scale(1.04); }
+    .meta { padding: 20px 22px 22px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    .meta h2 { font-family: 'Clash Display', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -0.01em; }
+    .meta p { color: var(--muted); font-size: 14px; margin-top: 6px; line-height: 1.5; }
+    .tag { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--accent); }
+    .go { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #0b0b0c; transition: transform .3s; }
+    .card:hover .go { transform: rotate(-45deg); }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .card { animation: none; opacity: 1; transform: none; } * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="eyebrow"><i></i> Frontend showcase</span>
+      <h1>Six landing pages, built to move.</h1>
+      <p>Responsive, animated marketing sites with real interactions — calculators, quizzes, live counters, carts and modals. Each page has its own type system and a signature feature.</p>
+      <div class="stack"><span>React 19</span><span>TypeScript</span><span>Vite</span><span>Tailwind CSS v4</span><span>Motion</span><span>Lenis</span></div>
+    </header>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>
+      <span>Built with React, Vite &amp; Tailwind CSS.</span>
+      <span>UI concepts inspired by community design shots — rebuilt and extended in code.</span>
+    </footer>
+  </div>
+
+  <script>
+    const projects = [
+      { slug: 'creatix', name: 'Creatix', desc: 'Creative agency site with a custom magnetic cursor and kinetic marquees.', tag: 'Agency · Custom cursor', accent: '#b8ff2c' },
+      { slug: 'finguard', name: 'FinGuard', desc: 'Fintech landing with a 3D tilting card stack and a live savings calculator.', tag: 'Fintech · Savings planner', accent: '#ff4500' },
+      { slug: 'petal-power', name: 'Petal Power', desc: 'Houseplant store with cart, search and a personalised plant-match quiz.', tag: 'E-commerce · Plant quiz', accent: '#c8e6b0' },
+      { slug: 'base-club', name: 'Base Club', desc: 'Web3 SocialFi page with wallet, staking and a real-time creator leaderboard.', tag: 'Web3 · Live leaderboard', accent: '#ccff00' },
+      { slug: 'nicepay', name: 'Nicepay', desc: 'SaaS finance platform with dashboard mockups, pricing toggle and blog.', tag: 'SaaS · Editorial type', accent: '#a99bff' },
+      { slug: 'lumora', name: 'Lumora', desc: 'Design studio site with page loader, liquid hero reveal and live clock.', tag: 'Studio · Liquid reveal', accent: '#cf8047' },
+    ];
+    const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    document.getElementById('grid').innerHTML = projects.map((p, i) => `
+      <a class="card" href="./${p.slug}/" style="--accent:${p.accent};animation-delay:${i * 80}ms">
+        <div class="thumb"><img src="./previews/${p.slug}.jpg" alt="${p.name} landing page preview" loading="lazy"></div>
+        <div class="meta">
+          <div><h2>${p.name}</h2><p>${p.desc}</p><span class="tag">${p.tag}</span></div>
+          <span class="go" aria-hidden="true">${arrow}</span>
+        </div>
+      </a>`).join('');
+  </script>
+</body>
+</html>
