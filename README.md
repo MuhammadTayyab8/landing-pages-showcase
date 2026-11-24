@@ -3,9 +3,9 @@
 Six responsive, animated landing pages built with **React 19, TypeScript, Vite, Tailwind CSS v4, Motion and Lenis**.
 Each page has its own type system and one signature interactive feature.
 
-**Live demo:** `https://MuhammadTayyab8.github.io/<repo-name>/`
+**Live demo:** `https://MuhammadTayyab8.github.io/landing-pages-showcase/`
 
-![Showcase](showcase/previews/creatix.jpg)
+![Showcase](showcase/previews/finguard.jpg)
 
 | Page | Type | Signature feature | Fonts |
 |---|---|---|---|
